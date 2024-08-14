@@ -1,0 +1,20 @@
+entity Presentacion {
+    descripcion String
+}
+
+entity Persona {
+    nombre String
+    apellido String
+    email String
+    telefono String
+}
+
+// Relationships
+// No relationships defined for simplicity
+
+// Service Configuration
+service all with serviceImpl
+
+// Pagination and DTO configuration (optional)
+paginate Presentacion with pagination
+paginate Persona with pagination
