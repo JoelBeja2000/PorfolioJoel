@@ -50,6 +50,8 @@ public class CacheConfiguration {
             createCache(cm, com.porfoliojoel.com.domain.User.class.getName());
             createCache(cm, com.porfoliojoel.com.domain.Authority.class.getName());
             createCache(cm, com.porfoliojoel.com.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.porfoliojoel.com.domain.Presentacion.class.getName());
+            createCache(cm, com.porfoliojoel.com.domain.Persona.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

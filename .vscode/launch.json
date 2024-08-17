@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-PorfolioJoelApp<porfolio-joel>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.porfoliojoel.com.PorfolioJoelApp",
+      "projectName": "porfolio-joel",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "internalConsole"
+    }
+  ]
+}

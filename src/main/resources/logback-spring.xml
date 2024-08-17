@@ -28,7 +28,7 @@
     -->
 
     <logger name="com.porfoliojoel.com" level="INFO"/>
-
+    <logger name="javax.management" level="WARN"/>
     <logger name="angus.activation" level="WARN"/>
     <logger name="jakarta.activation" level="WARN"/>
     <logger name="jakarta.mail" level="WARN"/>

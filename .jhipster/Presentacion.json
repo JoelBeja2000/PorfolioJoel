@@ -1,0 +1,17 @@
+{
+  "annotations": {
+    "changelogDate": "20240814224626"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Presentacion",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
