@@ -1,0 +1,27 @@
+[
+  {
+    "type": "button",
+    "name": "Inicio",
+    "icon": "home-icon",
+    "route": "/inicio"
+  },
+  {
+    "type": "folder",
+    "name": "Entidades",
+    "icon": "entities-icon",
+    "children": [
+      {
+        "type": "button",
+        "name": "Persona",
+        "icon": "person-icon",
+        "route": "/persona"
+      },
+      {
+        "type": "button",
+        "name": "Presentación",
+        "icon": "presentation-icon",
+        "route": "/presentacion"
+      }
+    ]
+  }
+]

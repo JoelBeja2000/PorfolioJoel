@@ -85,7 +85,7 @@
       "id": "ID"
     },
     "ribbon": {
-      "dev": "Development"
+      "dev": "Dev"
     },
     "item-count": "Mostrando {{first}} - {{second}} de {{total}} elementos."
   },

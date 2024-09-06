@@ -1,0 +1,118 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+
+/* ==========================================================================
+Navbar
+========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #1a313a;
+}
+
+.text {
+  color: white;
+}
+
+.sidebar {
+  position: fixed;
+  width: 60px;
+  height: 100vh;
+  background: #000000;
+  overflow: hidden;
+  transition: width 0.5s;
+  z-index: 1000;
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, #423f41 20%, transparent 21%);
+  background-size: 9px 9px; /* Tamaño del patrón */
+  background-position: 0 0;
+
+  filter: blur(1px);
+  z-index: -1;
+}
+
+.sidebar:hover {
+  width: 300px;
+}
+
+.sidebar ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo base para los enlaces */
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  color: #ffffff;
+  text-decoration: none;
+  position: relative; /*Necesario para el posicionamiento del pseudo-elemento */
+  overflow: hidden;
+  background-clip: padding-box; /* Asegura que el fondo se recorte a la caja del padding */
+}
+
+/* Pseudo-elemento para el fondo en el estado :hover */
+.sidebar ul li a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--bg-color) 20%, transparent 21%);
+  background-size: 9px 9px; /* Asegúrate de que el tamaño coincida */
+  background-attachment: fixed;
+  filter: blur(1px); /* Aplicar desenfoque al fondo */
+  z-index: -1; /* Coloca el pseudo-elemento detrás del contenido del enlace */
+  opacity: 0; /* Inicialmente oculto */
+  transition: opacity 0.3s ease; /* Transición suave para la visibilidad */
+}
+
+/* Estilo para el estado :hover */
+.sidebar ul li a:hover::before {
+  position: absolute;
+  opacity: 1; /* Muestra el patrón en el hover */
+}
+
+.sidebar ul li .icon {
+  margin-right: 15px;
+}
+
+.sidebar ul li .text {
+  margin-left: 0px; /* Aumenta este valor para mover el texto más a la derecha */
+  white-space: nowrap; /* Evita que el texto se envuelva */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar ul li.logo .text {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

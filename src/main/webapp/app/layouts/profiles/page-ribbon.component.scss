@@ -1,8 +1,5 @@
-/* ==========================================================================
-Development Ribbon
-========================================================================== */
 .ribbon {
-  background-color: rgba(170, 0, 0, 0.5);
+  background-color: #131212;
   overflow: hidden;
   position: absolute;
   top: 40px;
@@ -11,8 +8,10 @@ Development Ribbon
   z-index: 9999;
   pointer-events: none;
   opacity: 0.75;
+
   a {
-    color: #fff;
+    color: #ffffff;
+
     display: block;
     font-weight: 400;
     margin: 1px 0;
@@ -21,5 +20,34 @@ Development Ribbon
     text-decoration: none;
     text-shadow: 0 0 5px #444;
     pointer-events: none;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.ribbon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, #c45016 20%, transparent 21%);
+  background-size: 15px 15px; /* Tamaño del patrón */
+  filter: blur(1px); /* Aplicar blur a los puntos */
+
+  /* Colocar el pseudo-elemento detrás del contenido */
+  z-index: 0;
+
+  /* Animación del patrón */
+  animation: movePattern 5s linear infinite;
+}
+
+@keyframes movePattern {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
   }
 }
