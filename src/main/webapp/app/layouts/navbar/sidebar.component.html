@@ -1,0 +1,45 @@
+<div class="d-flex">
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <ul>
+      <li>
+        <a routerLink="/">
+          <span class="icon">🏠</span>
+          <span class="text">Inicio</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/persona">
+          <span class="icon">📂</span>
+          <span class="text">Entidades</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/">
+          <span class="icon">⚙️</span>
+          <span class="text">Administración</span>
+        </a>
+      </li>
+
+      <ul>
+        <li *ngFor="let _ of [].constructor(0)">
+          <a routerLink="/">
+            <span class="icon"></span>
+            <span class="text">demo</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="bottom">
+        <li>
+          <a routerLink="/">
+            <span class="icon">👤</span>
+            <span class="text">Cuenta</span>
+          </a>
+        </li>
+      </div>
+    </ul>
+  </nav>
+</div>

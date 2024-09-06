@@ -14,11 +14,19 @@ import { EntityNavbarItems } from 'app/entities/entity-navbar-items';
 import ActiveMenuDirective from './active-menu.directive';
 import NavbarItem from './navbar-item.model';
 
+interface SidebarItem {
+  type: 'button' | 'folder';
+  name: string;
+  icon: string;
+  route?: string;
+  children?: SidebarItem[];
+}
+
 @Component({
   standalone: true,
   selector: 'jhi-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss',
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.scss',
   imports: [RouterModule, SharedModule, HasAnyAuthorityDirective, ActiveMenuDirective],
 })
 export default class NavbarComponent implements OnInit {
@@ -29,6 +37,7 @@ export default class NavbarComponent implements OnInit {
   version = '';
   account = inject(AccountService).trackCurrentAccount();
   entitiesNavbarItems: NavbarItem[] = [];
+  sidebarItems: SidebarItem[] = [];
 
   private loginService = inject(LoginService);
   private translateService = inject(TranslateService);
@@ -44,10 +53,19 @@ export default class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.entitiesNavbarItems = EntityNavbarItems;
+    this.loadSidebarConfig();
     this.profileService.getProfileInfo().subscribe(profileInfo => {
       this.inProduction = profileInfo.inProduction;
       this.openAPIEnabled = profileInfo.openAPIEnabled;
+      this.setBackgroundColor(this.generarColorHexadecimalAleatorio());
     });
+  }
+
+  // Función para cargar el archivo JSON
+  async loadSidebarConfig(): Promise<SidebarItem[]> {
+    const response = await fetch('sidebar-data.json');
+    const data = await response.json();
+    return data;
   }
 
   changeLanguage(languageKey: string): void {
@@ -71,5 +89,34 @@ export default class NavbarComponent implements OnInit {
 
   toggleNavbar(): void {
     this.isNavbarCollapsed.update(isNavbarCollapsed => !isNavbarCollapsed);
+  }
+
+  generarColorHexadecimalAleatorio(): string {
+    // Genera un número aleatorio entre 0 y 0xFFFFFF (16777215 en decimal)
+    const colorAleatorio = Math.floor(Math.random() * 0xffffff);
+
+    // Convierte el número a una cadena hexadecimal y asegura que tenga 6 caracteres
+    const colorHex = colorAleatorio.toString(16).padStart(6, '0');
+
+    // Devuelve el color en formato #RRGGBB
+    return `#${colorHex}`;
+  }
+
+  hasItem(route: string): boolean {
+    return this.sidebarItems.some(item => item.route === route);
+  }
+
+  getItemIcon(route: string): string {
+    const item = this.sidebarItems.find(item => item.route === route);
+    return item ? item.icon : '';
+  }
+
+  getItemName(route: string): string {
+    const item = this.sidebarItems.find(item => item.route === route);
+    return item ? item.name : '';
+  }
+
+  private setBackgroundColor(color: string): void {
+    document.documentElement.style.setProperty('--bg-color', color);
   }
 }

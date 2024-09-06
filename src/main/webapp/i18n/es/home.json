@@ -1,14 +1,14 @@
 {
   "home": {
-    "title": "¡Bienvenido, Porfolio de Joel",
+    "title": "¡Bienvenido al Porfolio de Joel",
     "subtitle": "Esta es la pagina de inicio",
     "logged": {
       "message": "Está conectado como \"{{username}}\"."
     },
-    "question": "xxxxxxxxxxxxxxx",
+    "question": "Mis Links:",
     "link": {
       "homepage": "xxxxxxxxxxxxxxx",
-      "stackoverflow": "xxxxxxxxxxxxxxx",
+      "stackoverflow": "stackoverflow",
       "bugtracker": "xxxxxxxxxxxxxxx",
       "chat": "xxxxxxxxxxxxxxx",
       "follow": "xxxxxxxxxxxxxxx"
